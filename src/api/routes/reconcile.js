@@ -56,7 +56,10 @@ async function executeRun(run, exchangeFile, userFile, effectiveConfig) {
         totalUser: ingestionStats.userCount,
         ingestionErrorsExchange: ingestionStats.exchangeErrors,
         ingestionErrorsUser: ingestionStats.userErrors,
-        ...matchSummary,
+        matched: matchSummary.matched,
+        conflicting: matchSummary.conflicting,
+        unmatchedExchange: matchSummary.unmatchedExchange,
+        unmatchedUser: matchSummary.unmatchedUser,
       },
     });
     logger.info('Reconciliation run completed', { runId, matchSummary });
